@@ -1,7 +1,7 @@
 # Adcash Assignment April 2020
 ## Ahmed Samir Imam
 
-This REST API application used NodeJs with Postgresql database
+This REST API application uses NodeJs with Postgresql database
 
 Postgresql Configuration files
 
@@ -11,7 +11,7 @@ Postgresql Configuration files
 
 To run the migrations
 
-  * First, please change the connection configuration for postgresql database
+  * First, please change the Postgresql configuration files
   * Migrate Up `npm run migrate_up`
   * Migrate Down `npm run migrate_down`
 
@@ -32,5 +32,4 @@ To start the server:
   * Run Migration `npm run migrate_up && npm run migrate_up`
   * Start the server `node server.js`
   * The configred URL is [`localhost:3000`](http://localhost:3000) 
-
 
