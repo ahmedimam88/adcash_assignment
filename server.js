@@ -14,8 +14,7 @@ app.get("/", (req, res) => {
 app.set('json spaces',0);
 
 
-// require("./routes/category.routes.js")(app);
-// require("./routes/product.routes.js")(app);
+require("./routes/category.routes.js")(app);
 
 // set port, listen for requests
 module.exports = app.listen(3000, () => {
