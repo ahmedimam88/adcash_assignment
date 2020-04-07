@@ -10,13 +10,14 @@ Postgresql Configuration files
  
 To run the migrations
   * First, please change the Postgresql configuration files
-  * Run Migrations (Linux)
-    * Migrate Up `npm run migrate_up`
-    * Migrate Down `npm run migrate_down`
+  * Run Migrations
+    * If Linux
+      * Migrate Up `npm run migrate_up`
+      * Migrate Down `npm run migrate_down`
   
-  or if windows
-    * Migrate Up `./node_modules/db-migrate/bin/db-migrate up --config ./config/test_config.json`
-    * Migrate Down `./node_modules/db-migrate/bin/db-migrate down --config ./config/test_config.json`
+    * If windows
+      * Migrate Up `./node_modules/db-migrate/bin/db-migrate up --config ./config/test_config.json`
+      * Migrate Down `./node_modules/db-migrate/bin/db-migrate down --config ./config/test_config.json`
 
  
 Unit Test Files (TDD)
