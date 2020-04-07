@@ -100,3 +100,18 @@ exports.update = (req, res) => {
     );
   };
   
+  exports.delete = (req, res) => {
+    Product.remove(req.params.productId, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Product with id ${req.params.productId} is not found.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Could not delete Product with id " + req.params.productId
+        });
+      }
+    } else res.send({ message: `Product was deleted successfully!` });
+  });
+};

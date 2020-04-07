@@ -120,3 +120,26 @@ describe("PUT /api/products/:id", () => {
       expect(res.status).to.equal(404);
     });
   });
+
+
+  describe("DELETE /api/products/:id", () => {
+    it("Delete Product with Success", async () => {
+      var resp = await request(app).get("/api/products");
+      const res = await request(app)
+        .delete("/api/products/" + resp.body[0].id)
+        .send();
+      expect(res.status).to.equal(200);
+      expect(res.body).to.have.property("message","Product was deleted successfully!");
+    });
+  });
+  
+  describe("DELETE /api/products/:id", () => {
+    it("Delete Product with Failure", async () => {
+      var rescat = await request(app).get("/api/products");
+      const res = await request(app)
+        .delete("/api/products/" + 44412)
+        .send();
+      expect(res.status).to.equal(404);
+      expect(res.body).to.have.property("message","Product with id 44412 is not found.");
+    });
+  });
