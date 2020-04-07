@@ -119,4 +119,26 @@ describe("PUT /api/categories", () => {
       expect(res.body).to.have.property("message","Not found Category with id 4444.");
     });
   });
+
+
+  describe("DELETE /api/categories/:id", () => {
+    it("Delete Category with Success", async () => {
+      var rescat = await request(app).get("/api/categories");
+      const res = await request(app)
+        .delete("/api/categories/" + rescat.body[0].id)
+        .send();
+      expect(res.status).to.equal(200);
+      expect(res.body).to.have.property("message","Category was deleted successfully!");
+    });
+  });
   
+  describe("DELETE /api/categories/:id", () => {
+    it("Delete Category with Failure", async () => {
+      var rescat = await request(app).get("/api/categories");
+      const res = await request(app)
+        .delete("/api/categories/" + 444)
+        .send();
+      expect(res.status).to.equal(404);
+      expect(res.body).to.have.property("message","Not found Category with id 444");
+    });
+  });
