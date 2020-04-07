@@ -75,3 +75,48 @@ describe("GET /api/products", () => {
       expect(res.body).to.have.property("message");
     });
 });
+
+
+describe("PUT /api/products/:id", () => {
+    it("Update Product with Success", async () => {
+  
+      var resp = await request(app).get("/api/products");
+      var rand =  Math.random();
+  
+  
+      const res = await request(app)
+        .put("/api/products/" + resp.body[0].id)
+        .send({
+          "productcode": "Test xxx-UPDATED" + rand,
+          "productname": "Test xxx-UPDATED" + rand,
+          "description": "Test xxx-UPDATED" + rand,
+          "onhand": 100,
+          "volume": 2.1,
+          "weight": 22.2,
+          "category_id": resp.body[0].category_id
+        });
+      expect(res.status).to.equal(200);
+      expect(res.body).to.have.property("productcode", "Test xxx-UPDATED"+rand);
+      expect(res.body).to.have.property("onhand", 100);
+  
+    });
+  });
+  
+  describe("PUT /api/products/:id", () => {
+    it("Update Product with Failure", async () => {
+  
+      const res = await request(app)
+        .put("/api/products/4444")
+        .send({
+          "productcode": "Test P009-01-UPDATED",
+          "productname": "Test P009-01-UPDATED",
+          "description": "Test P009-01-UPDATED",
+          "onhand": 100,
+          "volume": 2.1,
+          "weight": 22.2,
+          "category_id": 1
+  
+        });
+      expect(res.status).to.equal(404);
+    });
+  });
