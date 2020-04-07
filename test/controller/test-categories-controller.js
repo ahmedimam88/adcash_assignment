@@ -102,3 +102,21 @@ describe("PUT /api/categories", () => {
       expect(res.body).to.have.property("catname","Test33-UPDATED" + rand);
     });
   });
+
+
+  describe("PUT /api/categories", () => {
+    it("Update Category with Failure", async () => {
+  
+      const res = await request(app)
+        .put("/api/categories/4444")
+        .send({
+          "catname": "Test33-UPDATED",
+          "cattype": "Test33-UPDATED",
+          "catbrand": "Test33-UPDATED",
+          "catsegment": "Test33-UPDATED"
+        });
+      expect(res.status).to.equal(404);
+      expect(res.body).to.have.property("message","Not found Category with id 4444.");
+    });
+  });
+  
