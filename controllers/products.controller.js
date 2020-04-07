@@ -11,3 +11,19 @@ exports.findAll = (req, res) => {
       else res.send(data);
     });
   };
+
+exports.findOne = (req, res) => {
+    Product.findById(req.params.productId, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Product with id ${req.params.productId}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving Product with id " + req.params.productId
+        });
+      }
+    } else res.send(data);
+  });
+};

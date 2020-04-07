@@ -31,7 +31,6 @@ describe("GET /api/products", () => {
     });
   });
   
-  
   describe("GET /api/products/:id", () => {
     it("List Specific product with Failure", async () => {
   
