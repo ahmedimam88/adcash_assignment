@@ -1,0 +1,10 @@
+{
+    "defaultEnv": "test",
+    "test": {
+      "driver": "pg",
+      "host": "localhost",
+      "schema": "public",
+      "database": "adcash_nodejs",
+      "user": "postgres"
+  }
+}
