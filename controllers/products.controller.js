@@ -66,3 +66,37 @@ exports.create = (req, res) => {
         else res.send(data);  
     });    
 }
+
+exports.update = (req, res) => {
+
+    if (!req.body) {
+      res.status(400).send({
+        message: "Content can not be empty!"
+      });
+    }
+
+    if (!req.body.category_id) {
+      res.status(400).send({
+        message: "Category_id can't be null!"
+      });
+    }
+  
+    Product.updateById(
+      req.params.productId,
+      new Product(req.body),
+      (err, data) => {
+        if (err) {
+          if (err.kind === "not_found") {
+            res.status(404).send({
+              message: `Not found Product with id ${req.params.productId}.`
+            });
+          } else {
+            res.status(500).send({
+              message: "Error updating Product with id " + req.params.productId
+            });
+          }
+        } else res.send(data);
+      }
+    );
+  };
+  
