@@ -1,0 +1,40 @@
+{
+  "name": "adcash_assignment",
+  "version": "1.0.0",
+  "description": "Adcash Assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate_down": "./node_modules/db-migrate/bin/db-migrate down -c 1 --config ./config/test_config.json",
+    "migrate_up": "./node_modules/db-migrate/bin/db-migrate up -c 1 --config ./config/test_config.json",
+    "migrate_up_all": "./node_modules/db-migrate/bin/db-migrate up --config ./config/test_config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedimam88/adcash_assignment.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "adcash",
+    "postgresql",
+    "restapi"
+  ],
+  "author": "Ahmed Imam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedimam88/adcash_assignment/issues"
+  },
+  "homepage": "https://github.com/ahmedimam88/adcash_assignment#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "db-migrate": "^0.11.6",
+    "db-migrate-pg": "^1.0.0",
+    "express": "^4.17.1",
+    "pg": "^8.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.1",
+    "supertest": "^4.0.2"
+  }
+}
