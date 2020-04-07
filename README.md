@@ -14,7 +14,7 @@ To run the migrations
     * Migrate Up `npm run migrate_up`
     * Migrate Down `npm run migrate_down`
   
-  or (if windows)
+  or if windows
     * Migrate Up `./node_modules/db-migrate/bin/db-migrate up --config ./config/test_config.json`
     * Migrate Down `./node_modules/db-migrate/bin/db-migrate down --config ./config/test_config.json`
 
