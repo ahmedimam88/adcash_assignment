@@ -13,9 +13,9 @@ To run the migrations
   * Run Migrations
     * Migrate Up `npm run migrate_up` (Works on Linux)
     * Migrate Down `npm run migrate_down` (Works on Linux)
-    or
-    * Migrate Up `./node_modules/db-migrate/bin/db-migrate up --config ./config/test_config.json` (Works on Windows)
-    * Migrate Down `./node_modules/db-migrate/bin/db-migrate down --config ./config/test_config.json` ((Works on Windows))
+  or (if windows)
+    * Migrate Up `./node_modules/db-migrate/bin/db-migrate up --config ./config/test_config.json`
+    * Migrate Down `./node_modules/db-migrate/bin/db-migrate down --config ./config/test_config.json`
 
  
 Unit Test Files (TDD)
