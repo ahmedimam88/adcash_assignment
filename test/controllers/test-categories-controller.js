@@ -142,3 +142,19 @@ describe("PUT /api/categories", () => {
       expect(res.body).to.have.property("message","Not found Category with id 444");
     });
   });
+
+
+  describe("GET /api/categories/:id/products", () => {
+    it("List all products with success", async () => {
+  
+      const res = await request(app).get("/api/categories/3/products");
+      
+      expect(res.status).to.equal(200);
+
+      res.body.forEach(function(i) {
+        console.log("Erreeeeeeeeeeeeeeor: ", i);
+        expect(i.category_id).to.equal(3);
+       });
+      
+    });
+  });

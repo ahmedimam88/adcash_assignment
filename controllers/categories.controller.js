@@ -115,3 +115,18 @@ exports.update = (req, res) => {
     });   
 };
   
+exports.findProductsByCatId = (req, res) => {
+  Product.findProductsByCatId(req.params.categoryId, (err, data) => {
+  if (err) {
+    if (err.kind === "not_found") {
+      res.status(404).send({
+        message: `Not found Products with Category id ${req.params.categoryId}`
+      });
+    } else {
+      res.status(500).send({
+        message: "Error retrieving Products with Category id " + req.params.categoryId
+      });
+    }
+  } else res.send(data);
+});
+};
