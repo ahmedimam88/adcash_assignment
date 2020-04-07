@@ -29,3 +29,28 @@ exports.findOne = (req, res) => {
 };
 
 
+exports.create = (req, res) => {
+
+    if (!req.body) {
+      res.status(400).send({
+        message: "Content can not be empty!"
+      });
+    }
+
+    const category = new Category({
+        catname: req.body.catname,
+        cattype: req.body.cattype,
+        catbrand: req.body.catbrand,
+        catsegment: req.body.catsegment
+    });
+
+    Category.create(category, (err, data) => {
+        if (err) {
+          res.status(500).send({
+            message:
+              err.message || "Some error occurred while creating the Category in the database."
+          });
+        }
+        else res.send(data);
+      });
+};
