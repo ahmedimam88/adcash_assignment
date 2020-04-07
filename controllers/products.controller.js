@@ -27,3 +27,42 @@ exports.findOne = (req, res) => {
     } else res.send(data);
   });
 };
+
+
+exports.create = (req, res) => {
+
+    if (!req.body) {
+      res.status(400).send({
+        message: "Content can not be empty!"
+      });
+    }
+
+    const product = new Product({
+        productcode: req.body.productcode,
+        productname: req.body.productname,
+        description: req.body.description,
+        onhand: req.body.onhand,
+        volume: req.body.volume,
+        weight: req.body.weight,
+        category_id: req.params.categoryId
+    });
+
+    Category.findById(req.params.categoryId, (err, data) => {
+        if (err) {
+          if (err.kind === "not_found") {
+            res.status(404).send({
+              message: `Not found Category with id ${req.params.categoryId}.`
+            });
+        }
+    }
+  });
+
+    Product.create(product, (err, data) => {
+        if (err)
+          res.status(500).send({
+            message:
+              err.message || "Some error occurred while creating the Product in the database."
+          });
+        else res.send(data);  
+    });    
+}
