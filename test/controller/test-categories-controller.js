@@ -83,3 +83,22 @@ describe("POST /api/categories", () => {
       expect(res.body).to.have.property("message");
     });
 });
+
+describe("PUT /api/categories", () => {
+    it("Update Category with Success", async () => {
+  
+      var rescat = await request(app).get("/api/categories");
+      var rand =  Math.random();
+  
+      const res = await request(app)
+        .put("/api/categories/" + rescat.body[0].id)
+        .send({
+          "catname": "Test33-UPDATED" + rand,
+          "cattype": "Test33-UPDATED" + rand,
+          "catbrand": "Test33-UPDATED" + rand,
+          "catsegment": "Test33-UPDATED" + rand
+        });
+      expect(res.status).to.equal(200);
+      expect(res.body).to.have.property("catname","Test33-UPDATED" + rand);
+    });
+  });
