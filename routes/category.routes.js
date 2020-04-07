@@ -5,6 +5,7 @@ module.exports = app => {
     app.get("/api/categories/:categoryId", categories.findOne);
     app.post("/api/categories", categories.create);
     app.put("/api/categories/:categoryId", categories.update);
+    app.delete("/api/categories/:categoryId", categories.delete);
 
 
   };
