@@ -5,6 +5,7 @@
       "host": "localhost",
       "schema": "public",
       "database": "adcash_nodejs",
-      "user": "postgres"
+      "user": "postgres",
+      "password": "A1234567890"
   }
 }

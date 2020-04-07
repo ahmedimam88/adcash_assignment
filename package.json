@@ -35,6 +35,9 @@
     "express": "^4.17.1",
     "pg": "^8.0.0"
   },
+  "engines": {
+    "node": "13.x"
+  },
   "devDependencies": {
     "mocha": "^7.1.1",
     "supertest": "^4.0.2"
