@@ -27,4 +27,16 @@ describe("GET /api/categories", () => {
       expect(res.body[0]).to.have.property("catname", "Category 1");
     });
   });
+
   
+  describe("GET /api/categories/:id", () => {
+    it("List Specific Category with Success", async () => {
+  
+      var rescat = await request(app).get("/api/categories");
+      const res = await request(app).get("/api/categories/" + rescat.body[0].id);
+      
+      expect(res.status).to.equal(200);
+      expect(res.body).to.have.property("id", rescat.body[0].id);
+      expect(res.body).to.have.property("catname", "Category 1");
+    });
+  });
