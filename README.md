@@ -36,3 +36,17 @@ To start the server:
   * Run Migration UP Twice `npm run migrate_up` or `./node_modules/db-migrate/bin/db-migrate up --config ./config/test_config.json`
   * Start the server `node server.js`
   * The configred URL is [`localhost:3000`](http://localhost:3000) 
+
+
+Endpoints Summary:
+  * GET /api/categories - Get All Categories
+  * GET /api/products - Get All Products
+  * GET /api/categories/:id/products - Get All products for a certain category
+  * GET /api/categories/:id - Get specific category
+  * GET /api/products/:id - Get specific product
+  * POST /api/categories - Create new category
+  * POST /api/products - Create new product
+  * PUT /api/categories/:id - Update existing category
+  * PUT /api/products/:id - Update existing product
+  * DELETE /api/categories/:id - Delete a category 
+  * DELETE /api/products/:id - Delete a product
